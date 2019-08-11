@@ -12,10 +12,8 @@ class LoginPage:
 
     def repair_password(self, email):
         wd = self.app.wd
-
-        wd.find_element_by_css_selector('.amount-inputs .forgot').click()
-
-        # wd.find_element_by_css_selector(SELECTORS['Forgot password']).click()
+        #ничего кроме link_text не работает, или работает только один раз
+        wd.find_element_by_link_text('Forgot password').click()
         wd.find_element_by_name('forgotPass').click()
         wd.find_element_by_name('forgotPass').clear()
         wd.find_element_by_name('forgotPass').send_keys(email)
